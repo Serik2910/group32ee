@@ -30,6 +30,7 @@ public class EditComment implements Service {
             }
             Comment comment = DBManager.getComment(id);
             if (comment != null) {
+
                 comment.setComment(request.getParameter("comment"));
                 DBManager.editComment(comment);
             }

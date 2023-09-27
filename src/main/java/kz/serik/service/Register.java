@@ -21,7 +21,7 @@ public class Register implements Service {
         String page;
         request.setAttribute("roles", DBManager.getRoles());
 
-        page = REGISTER+"?passworderror";
+        page = REGISTER_JSP+"?passworderror";
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         String re_password = request.getParameter("re_password");
@@ -37,7 +37,7 @@ public class Register implements Service {
         byte[] digest = md.digest();
         String myHash = bytesToHex(digest).toUpperCase();
         if (password.trim().equals(re_password.trim())) {
-            page = REGISTER+"?emailerror";
+            page = REGISTER_JSP+"?emailerror";
             User checkUser = DBManager.getUser(email);
             if (checkUser == null) {
                 User user = new User(
@@ -47,7 +47,7 @@ public class Register implements Service {
                         role
                 );
                 if (DBManager.addUser(user)) {
-                    page = REGISTER+"?success";
+                    page = REGISTER_JSP+"?success";
                 }
             }
         }
@@ -56,6 +56,10 @@ public class Register implements Service {
 
     @Override
     public String doGet(HttpServletRequest request, HttpServletResponse response) {
+        User user = (User) request.getSession().getAttribute(CURRENT_USER);
+        if(user.getRole().equals(ADMINISTRATOR)){
+            request.setAttribute("roles",DBManager.getRoles());
+        }
         return REGISTER_JSP;
     }
 }

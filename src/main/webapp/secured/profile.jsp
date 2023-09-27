@@ -18,13 +18,13 @@
         </div>
         <div class="row mt-5">
             <div class="col-6 mx-auto">
-                <c:if test="${param.update_success != null}">
+                <c:if test="${update == 'success'}">
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         Profile updated
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 </c:if>
-                <c:if test="${param.update_error != null}">
+                <c:if test="${update == 'error'}">
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         Profile update error
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -35,7 +35,7 @@
                         <label for="email">
                             EMAIL:
                         </label>
-                        <input type="text" class="form-control mt-3 bg-light" id="email" readonly value="${CURRENT_USER.email}">
+                        <input type="text" class="form-control mt-3 bg-light" id="email" name="email" readonly value="${CURRENT_USER.email}">
                     </div>
                     <div class="mt-3">
                         <label for="full_name">
@@ -60,9 +60,15 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 </c:if>
-                <c:if test="${param.password_error != null}">
+                <c:if test="${param.old_password_error != null}">
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                        Password update error
+                        Old password not correct
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </c:if>
+                <c:if test="${param.password_not_same_error != null}">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        New password not same with repeated
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 </c:if>

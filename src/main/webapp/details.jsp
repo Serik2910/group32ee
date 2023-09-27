@@ -5,7 +5,6 @@
 <head>
     <title>Title</title>
     <link rel="stylesheet" href="/bs/css/bootstrap.min.css">
-<%--    <script type="text/javascript" src="/tinymce/jquery-3.6.0.min.js"></script>--%>
     <style>
         img{
             max-width: 100%;
@@ -30,7 +29,6 @@
                     <div class="card-body">
                         <h5 class="card-title">${film.name}</h5>
                         <p class="card-text">${film.description}</p>
-<%--                        <a href="/details?id=${film.id}" class="btn btn-primary btn-sm">Details</a>--%>
                     </div>
                     <div class="card-footer text-muted">
                         Duration: ${film.duration} min, posted by: ${film.user.fullName}
@@ -68,8 +66,8 @@
                     <%
                         if(currentUser!=null && currentUser.getEmail().equals(film.getUser().getEmail())){
                     %>
-                    <a href="/restricted/edit_film?id=<%=film.getId()%>" class="btn btn-primary btn-sm">Edit film</a>
-                    <a href="/restricted/delete_film?id=<%=film.getId()%>" class="btn btn-danger btn-sm">Delete film</a>
+                    <a href="/restricted/edit_film?id=<%=film.getId()%>" class="btn btn-primary btn-sm"><fmt:message key="Button.EditFilm"/></a>
+                    <a href="/restricted/delete_film?id=<%=film.getId()%>" class="btn btn-danger btn-sm"><fmt:message key="Button.DeleteFilm"/></a>
                     <%
                         }
                     %>
@@ -79,7 +77,7 @@
                         if(currentUser!=null){
                     %>
                     <textarea  id="commentArea" class="form-control"></textarea>
-                    <button class="btn btn-success btn-sm mt-3" onclick="toAddComment(<%=film.getId()%>,'<%=currentUser.getEmail()%>')">Add Comment</button>
+                    <button class="btn btn-success btn-sm mt-3" onclick="toAddComment(<%=film.getId()%>,'<%=currentUser.getEmail()%>')"><fmt:message key="Button.AddComment"/></button>
                     <div id="buttonsArea"></div>
                     <script type="text/javascript">
                         async function toAddComment(filmId, user_email){
@@ -136,8 +134,8 @@
 
                             let buttonsArea = document.getElementById("buttonsArea");
                             let htmlCode = "";
-                            htmlCode += "<button class=\"btn btn-success btn-sm mt-3\" onclick=\"toEditComment("+commId+",'"+user_email+"')\">Edit Comment</button>";
-                            htmlCode += "<button class=\"btn btn-danger btn-sm mt-3\" onclick=\"toDeleteComment("+commId+",'"+user_email+"')\">Delete Comment</button>";
+                            htmlCode += "<button class=\"btn btn-success btn-sm mt-3\" onclick=\"toEditComment("+commId+",'"+user_email+"')\"><fmt:message key="Button.EditComment"/></button>";
+                            htmlCode += "<button class=\"btn btn-danger btn-sm mt-3\" onclick=\"toDeleteComment("+commId+",'"+user_email+"')\"><fmt:message key="Button.DeleteComment"/></button>";
                             buttonsArea.innerHTML=htmlCode;
                         }
                     </script>

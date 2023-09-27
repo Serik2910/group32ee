@@ -27,7 +27,7 @@
          -->
     <Resource name="jdbc/group_32_db" auth="Container" type="javax.sql.DataSource"
               maxTotal="100" maxIdle="30" maxWaitMillis="10000"
-              username="Serik" password="Drexler22" driverClassName="com.mysql.cj.jdbc.Driver"
+              username="serik" password="Drexler22" driverClassName="com.mysql.cj.jdbc.Driver"
               url="jdbc:mysql://localhost:3306/group_32_db"/>
 
 </Context>

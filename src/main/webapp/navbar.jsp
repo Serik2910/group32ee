@@ -3,6 +3,7 @@
 <%@ page import="java.util.Optional" %>
 <%@ page import="kz.serik.model.User" %>
 <%@ page import="kz.serik.DB.DBManager" %>
+<%@ page import="kz.serik.factory.ServiceConst" %>
 <%@ page pageEncoding="UTF-8" %>
 <%
     String siteName = "KINO.KZ";

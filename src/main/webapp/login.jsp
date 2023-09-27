@@ -19,7 +19,7 @@
                     if (error!=null){
                 %>
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    Incorrect email or password, try again
+                    <fmt:message key="Message.IncorrectEmail"/>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 <%
@@ -31,11 +31,11 @@
                         <input type="email" class="form-control mt-3" name="j_username" id="email" required>
                     </div>
                     <div class="mt-3">
-                        <label for="password">PASSWORD: </label>
+                        <label for="password"><fmt:message key="Label.ReTypePassword"/>: </label>
                         <input type="password" class="form-control mt-3" name="j_password" id="password" required>
                     </div>
                     <div class="mt-3">
-                        <button class="btn btn-dark">SIGN IN</button>
+                        <button class="btn btn-dark"><fmt:message key="Button.SignIn"/></button>
                     </div>
                 </form>
             </div>

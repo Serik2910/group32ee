@@ -1,5 +1,3 @@
-<%@ page import="java.lang.reflect.Field" %>
-<%@ page import="java.util.ArrayList" %>
 <%@ page import="kz.serik.model.Country" %>
 <%@ page import="kz.serik.DB.DBManager" %>
 <%@ page import="kz.serik.model.Genre" %>
@@ -29,13 +27,13 @@
                 <form action="/restricted/addfilm" method="post">
                     <div class="mt-3">
                         <label>
-                            NAME:
+                            <fmt:message key="TableHeader.FilmName"/>:
                         </label>
                         <input type="text" class="form-control mt-3" placeholder="enter name" name="name" required>
                     </div>
                     <div class="mt-3">
                         <label>
-                            DURATION:
+                            <fmt:message key="TableHeader.Duration"/>:
                         </label>
                         <select name="duration" class="form-control mt-3" required>
                             <%
@@ -47,37 +45,37 @@
                     </div>
                     <div class="mt-3">
                         <label>
-                            COUNTRY:
+                            <fmt:message key="TableHeader.Country"/>:
                         </label>
                         <select name="country" class="form-control mt-3" required>
                             <%
                                 for (Country country: DBManager.getCountries()){
                             %>
-                            <option value="<%=country.getId()%>"><%=country.getName_rus()%></option>
+                            <option value="<%=country.getId()%>"><fmt:message key="<%=country.getCode()%>"/></option>
                             <%}%>
                         </select>
                     </div>
                     <div class="mt-3">
                         <label>
-                            DESCRIPTION:
+                            <fmt:message key="TableHeader.Description"/>:
                         </label>
                         <textarea class="form-control mt-3" placeholder="enter description" name="description" required>
                         </textarea>
                     </div>
                     <div class="mt-3">
                         <label>
-                            GENRE:
+                            <fmt:message key="TableHeader.Genre"/>:
                         </label>
                         <select name="genre" class="form-control" required>
                             <%
                                 for (Genre genre:DBManager.getGenres()){
                             %>
-                            <option value="<%=genre.getId()%>"><%=genre.getName_rus()%></option>
+                            <option value="<%=genre.getId()%>"><fmt:message key="<%=genre.getName()%>"/></option>
                             <%}%>
                         </select>
                     </div>
                     <div class="mt-3">
-                        <button class="btn btn-success">Add film</button>
+                        <button class="btn btn-success"><fmt:message key="Button.AddFilm"/></button>
                     </div>
                 </form>
             </div>

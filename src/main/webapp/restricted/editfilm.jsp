@@ -53,13 +53,13 @@
                     <input type="hidden" id="id" name="id" value="<%=film.getId()%>">
                     <div class="mt-3">
                         <label>
-                            NAME:
+                            <fmt:message key="TableHeader.FilmName"/>:
                         </label>
                         <input type="text" class="form-control mt-3" placeholder="enter name" name="name" required value="<%=film.getName()%>">
                     </div>
                     <div class="mt-3">
                         <label>
-                            DURATION:
+                            <fmt:message key="TableHeader.Duration"/>:
                         </label>
                         <select name="duration" class="form-control mt-3" required>
                             <%
@@ -71,19 +71,19 @@
                     </div>
                     <div class="mt-3">
                         <label>
-                            COUNTRY:
+                            <fmt:message key="TableHeader.Country"/>:
                         </label>
                         <select name="country" class="form-control mt-3" required>
                             <%
                                 for (Country country: DBManager.getCountries()){
                             %>
-                            <option value="<%=country.getId()%>" <%=country.getId()==film.getCountry().getId()?"selected":""%>><%=country.getName_rus()%></option>
+                            <option value="<%=country.getId()%>" <%=country.getId()==film.getCountry().getId()?"selected":""%>><fmt:message key="<%=country.getCode()%>"/></option>
                             <%}%>
                         </select>
                     </div>
                     <div class="mt-3">
                         <label class="mb-3">
-                            DESCRIPTION:
+                            <fmt:message key="TableHeader.Description"/>:
                         </label>
                         <textarea class="form-control mt-3" placeholder="enter description" name="description" required>
                             ${film.description}
@@ -91,14 +91,14 @@
                     </div>
                     <div class="mt-3">
                         <label>
-                            GENRE:
+                            <fmt:message key="TableHeader.Genre"/>:
                         </label>
                         <select name="genre" class="form-control mt-3" required>
                             <%
                                 for (Genre genre:DBManager.getGenres()){
                             %>
                             <option value="<%=genre.getId()%>" <%=genre.getId()==film.getGenre().getId()?
-                                    "selected":""%>><%=genre.getName_rus()%></option>
+                                    "selected":""%>><fmt:message key="<%=genre.getName()%>"/></option>
                             <%}%>
                         </select>
                     </div>
@@ -106,7 +106,7 @@
                         <%
                             if(currentUser!=null && currentUser.getEmail().equals(film.getUser().getEmail())){
                         %>
-                        <button class="btn btn-success">Save film</button>
+                        <button class="btn btn-success"><fmt:message key="Button.SaveFilm"/></button>
                         <%
                             }
                         %>

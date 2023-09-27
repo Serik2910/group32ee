@@ -36,4 +36,6 @@ public class ServiceConst {
     public static final String DETAILS_JSP = "/details.jsp";
     public static final String INDEX_JSP = "/index.jsp";
     public static final String EDIT_FILM_JSP = "/restricted/editfilm.jsp";
+    public static final String ADMINISTRATOR = "administrator";
+    public static final String CLIENT = "client";
 }

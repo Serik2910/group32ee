@@ -34,6 +34,8 @@ public class LoadComments implements Service{
         }
         PrintWriter out = null;
         try {
+
+            response.setCharacterEncoding("UTF-8");
             out = response.getWriter();
             out.print(result);
         } catch (IOException e) {

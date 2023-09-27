@@ -13,14 +13,14 @@ import static kz.serik.factory.ServiceConst.*;
 public class Profile implements Service {
     @Override
     public String doPost(HttpServletRequest request, HttpServletResponse response){
-        String page = INDEX;
+        String page = INDEX_JSP;
         User user = (User) request.getSession().getAttribute(CURRENT_USER);
         if (user != null) {
             String fullName = request.getParameter("fullName");
             String email = request.getParameter("email");
             user.setFullName(fullName);
             user.setEmail(email);
-            page = PROFILE;
+            page = PROFILE_JSP;
             request.setAttribute("update", "error");
             if (DBManager.updateUser(user)) {
                 request.setAttribute("update", "success");

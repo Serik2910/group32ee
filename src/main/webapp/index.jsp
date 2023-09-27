@@ -1,4 +1,3 @@
-<%@ page import="java.lang.reflect.Field" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="kz.serik.model.Films" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>

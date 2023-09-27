@@ -28,7 +28,7 @@ public class ServiceFactory {
         SERVICE_MAP.put(DETAILS, new Details());
         SERVICE_MAP.put(LOAD_COMMENTS, new LoadComments());
         SERVICE_MAP.put(DELETE_COMMENTS, new DeleteComment());
-        SERVICE_MAP.put(EDIT_COMMENTS, new DeleteComment());
+        SERVICE_MAP.put(EDIT_COMMENTS, new EditComment());
         SERVICE_MAP.put(ADD_LIKE, new AddLike());
         SERVICE_MAP.put(ADD_COMMENTS, new AddComment());
         SERVICE_MAP.put(DELETE_FILM, new DeleteFilm());
